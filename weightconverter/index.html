@@ -57,10 +57,10 @@
     </div>
     <script>
         document.getElementById('output').style.visibility = 'hidden';
-        document.getElementById('inputNumber').addEventListener('input', function(e) {
+        document.getElementById('inputNumber').addEventListener('input', function() {
             document.getElementById('output').style.visibility = 'visible';
             let inputUnit = document.getElementById('unitInput').value;
-            let inputValue = e.target.value;
+            let inputValue = document.getElementById('inputNumber').value;
 
             switch(inputUnit) {
                 case 'pounds':
@@ -90,7 +90,6 @@
             }
         });
         document.getElementById('unitInput').addEventListener('change', function(){
-            console.log('called');
             let event = new Event('input', {
                 bubbles: true,
                 cancelable: true,   
