@@ -1,0 +1,17 @@
+body {
+    margin-top: 70px;
+    background-color: #333;
+    color: #fff;
+}
+/*
+.container {
+    border: 2px solid green;
+}
+.col {
+    border: 2px solid green;
+}*/
+
+.row {
+    margin: 10px 0px 10px 0px;
+/*    border: 2px solid green; */
+}
