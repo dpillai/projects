@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Drawing Tools</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 400px;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <div id="area"></div>
+    <script>
+        function initMap() {
+            let map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: 41.620080, lng: -93.834080},
+                zoom: 18  
+                });
+
+            var drawingManager = new google.maps.drawing.DrawingManager({
+                    drawingMode: google.maps.drawing.OverlayType.POLYGON,
+                    drawingControl: true,
+                    drawingControlOptions: {
+                    position: google.maps.ControlPosition.TOP_CENTER,
+                    drawingModes: ['marker', 'circle', 'polygon', 'polyline', 'rectangle']
+                },
+                markerOptions: {icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'},
+                circleOptions: {
+                    fillColor: '#ffff00',
+                    fillOpacity: 1,
+                    strokeWeight: 5,
+                    clickable: false,
+                    editable: true,
+                    zIndex: 1
+                }
+            });
+            drawingManager.setMap(map);
+
+            let infowindow = new google.maps.InfoWindow();
+
+            google.maps.event.addListener(drawingManager, 'overlaycomplete', function(event) {
+                    //console.log(boundaryPolygon.getPath().getArray());
+                let area = google.maps.geometry.spherical.computeArea(event.overlay.getPath()) / 4046.8564224;
+                console.log(area.toFixed(2));
+                document.getElementById('area').innerHTML = '<strong>Area: </strong>' + area.toFixed(2) + ' acres';
+
+                infowindow.setContent("Area = " + area.toFixed(2) + " acres");
+                infowindow.setPosition(event.overlay.getPath().getAt(0));
+                infowindow.open(map);
+            });
+
+
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCr0YRHQki68eNHuYRSiSav3go5olhyHgA&libraries=drawing&callback=initMap"
+         async defer></script>
+  </body>
+</html>
