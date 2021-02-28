@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+<script src=" https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.6.0/prop-types.js"></script>
+    <script type="text/babel">
+        const rootElement = document.getElementById("root")
+        // -----------------------------Re-rendering react component
+        // function tick() {
+        //     const time = new Date().toLocaleTimeString()
+        //     const element = <div>{time}</div> 
+
+        //     ReactDOM.render(element, rootElement)
+        // }
+        // tick()
+        // setInterval(tick,1000)
+        //-------------------------------working with interpolation
+        // const CharacterCount = ({text}) => <div>`${text} is {text.length} long`</div>
+
+        // const element = 
+        //     <div>
+        //         <CharacterCount text={11} />
+        //         <CharacterCount text="Hello" />
+        //     </div>
+        // -------------------------------------------React PropTypes -->incomplete
+        // function SayHello({firstName, lastName}) {
+        //     return (
+        //         <div>
+        //         Hello {firstName} {lastName}!
+        //     </div>
+        //     )
+        // }
+        // const element = <SayHello firstName={false} />
+        // -----------------------reuse React component
+        // const Message = props => <div className="message">{props.children}</div> 
+        // const element = 
+        //     <div>
+        //         <Message>Hello World</Message>
+        //         <Message children="Goodbye World" />
+        //     </div>
+        // -----------------------rendering components side by side w. fragments
+        // const element =
+        // <>
+        //     <span>Hello</span> <span>World</span>
+        // </>
+        // -----------------------rendering elements using JSX + babel
+        // const children ="Hello World"
+        // const className = "container"
+        // const props = {className, children}
+        // const element = <div {...props} /> 
+        // ---------------------rendering elements using React.createElements
+        // const element = React.createElement('div',
+        //     {children: ["Hello"," World"], 
+        //  className: "container"}
+        //  )
+        // ---------------------rendering elements in javascript
+        // const element = document.createElement('div')
+        // element.textContent = "Hello World"
+        // element.className = "container"
+        // rootElement.appendChild(element)
+        console.log(element)
+        ReactDOM.render(element, rootElement)
+    </script>
+
+</body>
+</html>

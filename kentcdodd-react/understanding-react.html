@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <div id="mountNode"></div>
+    <div id="mountNode2"></div>
+
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+<script src=" https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.6.0/prop-types.js"></script>
+    <script type="text/babel">
+        const rootElement = document.getElementById("root")
+        
+        const render= () => {
+            document.getElementById('mountNode').innerHTML = 
+            `<div>Hello HTML <input/>
+                <pre>${new Date().toLocaleTimeString()}</p>
+            </div>`;
+
+            ReactDOM.render(
+                React.createElement(
+                    'div', 
+                    null, 
+                    'Hello React',
+                    React.createElement("input"),
+                    React.createElement('pre', null, new Date().toLocaleTimeString())
+                ),
+                document.getElementById('mountNode2'),
+            );
+        }
+
+        setInterval(render, 1000);
+    </script>
+
+</body>
+</html>
